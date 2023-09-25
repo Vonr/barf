@@ -1,0 +1,31 @@
+[package]
+name = "barf"
+version = "1.0.0"
+edition = "2021"
+description = "Turn any input into \"barf\"-ed output."
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/Vonr/barf"
+repository = "https://github.com/Vonr/barf"
+keywords = ["serializer", "serialization", "binary"]
+include = ["src/**/*", "README.md"]
+rust-version = "1.60.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies.nano-leb128]
+version = "0.1"
+default-features = false
+optional = true
+
+[dependencies.vint64]
+version = "1.0"
+default-features = false
+optional = true
+
+[features]
+default = ["std"]
+std = ["alloc"]
+alloc = []
+leb128 = ["dep:nano-leb128"]
+vint64 = ["dep:vint64"]
